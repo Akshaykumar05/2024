@@ -30,4 +30,6 @@ Let's documents our learnings on the go..
      
    ### After doing this all:
    * Do up all the services: dcoker container, Tomcat and haproxy.
+
+   ### Updation of Inventry Files
      
