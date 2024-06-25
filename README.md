@@ -31,5 +31,9 @@ Let's documents our learnings on the go..
    ### After doing this all:
    * Do up all the services: dcoker container, Tomcat and haproxy.
 
-   ### Updation of Inventry Files
+  ## 4. Updation of Inventry Files
+
+  ## 5. Creation of Public and Private Keys
+   * Make user as a root user using ``sudo -i`` command and run the command ``ssh-keygen``.
+   * This will generate Public/Private rsa key pair.
      
