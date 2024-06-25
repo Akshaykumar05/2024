@@ -36,4 +36,10 @@ Let's documents our learnings on the go..
   ## 5. Creation of Public and Private Keys
    * Make user as a root user using ``sudo -i`` command and run the command ``ssh-keygen``.
    * This will generate Public/Private rsa key pair.
-     
+
+## 6. Logs Transfer
+* In this task, I have to transfer logs of Tomcat and HAProxy of a server to a Centalised Log Server using **rsyslog** tool.
+  ### Steps
+  * Create 2 VMs, one for Tomcat and HAProxy and other for Centalised log server.
+  * Install applications on them. On VM1: Tomcat and HAProxy, on VM2: rsyslog
+  * Forward logs from VM1 to VM2
