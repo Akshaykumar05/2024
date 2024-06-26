@@ -43,3 +43,10 @@ Let's documents our learnings on the go..
   * Create 2 VMs, one for Tomcat and HAProxy and other for Centalised log server.
   * Install applications on them. On VM1: Tomcat and HAProxy, on VM2: rsyslog
   * Forward logs from VM1 to VM2
+
+ ### Tomcat installation
+ 1. Download tomcat file
+ 2. Untar file
+ 3. Move file to usr/local/
+    * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/5f61cba2-3830-498f-a915-825b3e5e3a11)
+ 4. 
