@@ -38,11 +38,11 @@ Let's documents our learnings on the go..
    * This will generate Public/Private rsa key pair.
 
 ## 6. Logs Transfer
-* In this task, I have to transfer logs of Tomcat and HAProxy of a server to a Centalised Log Server using **rsyslog** tool.
+* In this task, I have to transfer logs of Tomcat Server and HAProxy to a Centalised Log Server using **rsyslog** tool. So that Developer can have all the logs together to moniter.
   ### Steps
   * Create 2 VMs, one for Tomcat and HAProxy and other for Centalised log server.
-  * Install applications on them. On VM1: Tomcat and HAProxy, on VM2: rsyslog
-  * Forward logs from VM1 to VM2
+  * Install applications on them. On VM1: two Tomcat servers named Tomcat1, Tomcat2 and HAProxy, on VM2: rsyslog
+  * Configure rsyslog on Tomcat and haproxy to forward logs from VM1 to VM2.
 
  ### Tomcat installation
  1. Download tomcat file
