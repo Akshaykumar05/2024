@@ -49,4 +49,15 @@ Let's documents our learnings on the go..
  2. Untar file
  3. Move file to usr/local/
     * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/5f61cba2-3830-498f-a915-825b3e5e3a11)
- 4. 
+ 4. Set up two Tomcat servers and haproxy on VM1.
+ 5. Restart and check the running status Tomcat1 on port 8081.
+ 6. Restart and check the running status Tomcat2 on port 8082.
+    *  ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/623af010-748b-4641-997a-048147c18820)
+   
+ 7. Check if the Tomcat servers are generating logs.
+    1. First go inside the tomcat2 and check the log files.
+       * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/af0fd3c2-ae67-48b2-9b96-eeb5d65b8c75)
+       * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/ef4e13e7-0750-4da0-ab24-21a5cf226770)
+
+
+
