@@ -37,16 +37,17 @@ Let's documents our learnings on the go..
    * Make user as a root user using ``sudo -i`` command and run the command ``ssh-keygen``.
    * This will generate Public/Private rsa key pair.
 
-## 6. Logs Transfer
-* In this task, I have to transfer logs of Tomcat Server and HAProxy to a Centalised Log Server using **rsyslog** tool. So that Developer can have all the logs together to moniter.
+## 6. Centralised Log Server
+* In this task, I have to transfer logs of Tomcat Servers and HAProxy to a Centalised Log Server using **rsyslog** tool. So that Developer can have all the logs together to moniter.
   ### Steps
-  * Create 2 VMs, one for Tomcat and HAProxy and other for Centalised log server.
-  * Install applications on them. On VM1: two Tomcat servers named Tomcat1, Tomcat2 and HAProxy, on VM2: rsyslog
+  * Create 2 VMs, one for Tomcat services and HAProxy and other for Centalised log server.
+  * VM1- Client Server: Set-up two Tomcat services named Tomcat1, Tomcat2 and HAProxy.
+  * VM2- Centralised Log Server: rsyslog
   * Configure rsyslog on Tomcat and haproxy to forward logs from VM1 to VM2.
 
  ### Tomcat installation
  1. Download tomcat file
- 2. Untar file
+ 2. Un-tar file
  3. Move file to usr/local/
     * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/5f61cba2-3830-498f-a915-825b3e5e3a11)
  4. Set up two Tomcat servers and haproxy on VM1.
