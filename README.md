@@ -60,12 +60,73 @@ Let's documents our learnings on the go..
    ```
    ![rsyslog install](https://github.com/Akshaykumar05/NIC/assets/114390890/78f06ca3-7859-4e11-8ec9-a3b2783dc3ce)
 
-4. Edit the rsyslog configuration file on VM2:
+4. Note: If you are using CentOS 8 / RHEL 9. then by default, Rsyslog  comes installed on it. To verify the status of Rsyslog, use the command:
+   ```
+   systemctl status rsyslog
+   ```
+   ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/48cfdb3e-31f1-4881-92cb-6da939834106)
+
+   
+5. Next, we need to modify a few settings in Rsyslog configuration file. Edit the rsyslog configuration file:
    ```
    sudo vim /etc/rsyslog.conf
    ```
-5. Enable UDP and TCP server modules by uncommenting or adding these lines:
-   
+6. Sroll the file and uncomment the following lins to allow reception of logs via UDP and TCP protocol.
+     
+   ```
+   module(load="imudp")
+   input(type="imudp" port="514")
+
+   module(load="imtcp")
+   input(type="imtcp" port="514")
+   ```
+   ![rsyslog conf](https://github.com/Akshaykumar05/NIC/assets/114390890/4c1d71fc-5ebd-45f3-bbd5-56dd47c698c5)
+
+   * Save and exit the configuration file.
+  
+7. To recieve the logs from the client server, we need to open Rsyslog default port 514 on the firewall. Run the following commands to achieve this:
+   ```
+   firewall-cmd  --permanent -add-port=514/tcp
+   ```
+   ```
+   firewall-cmd  --permanent -add-port=514/udp
+   ```
+   * Next, reload the firewall to save the changes.
+
+   ```
+   sudo firewall-cmd --reload
+   ```
+
+   * Sample output
+     
+   ![firewall tcp,udp](https://github.com/Akshaykumar05/NIC/assets/114390890/922eb207-338e-4d72-9ee0-b92ebeda301c)
+
+
+8. Set up a log file to store incoming logs:
+   * Add the following line to the end of the file:
+     
+   ```
+   *.* /var/log/remote.log
+   ```
+9. Restart the rsyslog service:
+   ```
+   sudo systemctl restart rsyslog
+   ```
+10. To enable Rsyslog on boot, run the following command:
+
+    ```
+    sudo systemctl enable rsyslog
+    ```
+11. Now, we need to confirm that the Rsyslog service is listening on port 514, use the **netstat** commands as follow:
+    
+    ```
+    sudo netstat telnp
+    ```
+    * Sample output
+      
+
+
+
    
  ### Tomcat installation
  1. Download tomcat file 
