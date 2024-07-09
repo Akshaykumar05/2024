@@ -40,15 +40,35 @@ Let's documents our learnings on the go..
 ## 6. Centralised Log Server
  ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/a4b724ce-dd56-47cb-afee-49cf9b9f6cff)
 
-* In this task, I have to transfer logs of Tomcat Servers and HAProxy to a Centalised Log Server using **rsyslog** tool. So that Developer can have all the logs together to moniter.
+* In this task, I have to transfer logs of Tomcat Servers and HAProxy to a Centralised Log Server using **rsyslog** tool. So that Developer can have all the logs together to moniter.
   ### Steps
   * Create 2 VMs, one for Tomcat services and HAProxy and other for Centalised log server.
   * VM1- Client Server: Set-up two Tomcat services named Tomcat1, Tomcat2 and HAProxy.
   * VM2- Centralised Log Server: rsyslog
   * Configure rsyslog on Tomcat and haproxy to forward logs from VM1 to VM2.
 
+ ### Centralised Log Server set up
+1. Create a VM2 with atleast 2 GB RAM and 30 GB Hard disc space.
+2. Install Ubuntu on it.
+3. Install **rsyslog package**
+   
+   ```
+   sudo apt update -y
+   ```
+   ```
+   sudo apt install rsyslog -y
+   ```
+   ![rsyslog install](https://github.com/Akshaykumar05/NIC/assets/114390890/78f06ca3-7859-4e11-8ec9-a3b2783dc3ce)
+
+4. Edit the rsyslog configuration file on VM2:
+   ```
+   sudo vim /etc/rsyslog.conf
+   ```
+5. Enable UDP and TCP server modules by uncommenting or adding these lines:
+   
+   
  ### Tomcat installation
- 1. Download tomcat file
+ 1. Download tomcat file 
  2. Un-tar file
  3. Move file to usr/local/
     * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/5f61cba2-3830-498f-a915-825b3e5e3a11)
