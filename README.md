@@ -120,10 +120,18 @@ Let's documents our learnings on the go..
 11. Now, we need to confirm that the Rsyslog service is listening on port 514, use the **netstat** commands as follow:
     
     ```
-    sudo netstat telnp
+    sudo netstat -tulnp
     ```
     * Sample output
       
+    ![netstat 514,22](https://github.com/Akshaykumar05/NIC/assets/114390890/902adf16-f87b-4b49-a74a-5f25c3053f2a)
+
+    * Perfect! we have successfully configured our Rsyslog server to recieve logs from the client system.
+    * To view log messages in real-time run the command:
+
+    ```
+    sudo tail -f /var/log/remote.log
+    ```
 
 
 
