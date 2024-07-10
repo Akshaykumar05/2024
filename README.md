@@ -133,6 +133,23 @@ Let's documents our learnings on the go..
     sudo tail -f /var/log/remote.log
     ```
 
+### Configuring the client servers on Ubuntu (VM1)
+1. Set-up the Rsyslog server same as we did in above machine (VM2).
+2. Check the status by runnibg the command:
+   
+   ```
+   sudo systemctl status rsyslog
+   ```
+   * Sample output
+  
+  3. Next, proceed to open the rsyslog configuration file
+
+   ```
+   sudo vim /etc/rsyslog.conf
+   ```
+  4. At the end of the file, append the following line.
+     
+
 
 
    
