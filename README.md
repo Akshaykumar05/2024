@@ -142,12 +142,23 @@ Let's documents our learnings on the go..
    ```
    * Sample output
   
-  3. Next, proceed to open the rsyslog configuration file
+3. Next, proceed to open the rsyslog configuration file
 
    ```
    sudo vim /etc/rsyslog.conf
    ```
-  4. At the end of the file, append the following line.
+4. At the end of the file, append the following line.
+   * Uncomment the following lines in the conf file:
+
+   ![rsyslog conf tcp,udp](https://github.com/Akshaykumar05/NIC/assets/114390890/3a59e37a-960e-4a46-b1c9-9a69096f1af6)
+
+   * Then, at the end of the file, append the following line:
+
+   ![rsyslog conf VM1](https://github.com/Akshaykumar05/NIC/assets/114390890/ae51ecfa-73de-4edb-bbec-7129c24a346f)
+
+  
+   
+
      
 
 
