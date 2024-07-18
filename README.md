@@ -3,6 +3,18 @@
 Yeahh!! So finally we are here in 2024....
 Let's documents our learnings on the go..
 
+## Index
+1. Keycloakand HAProxy
+2. IP Address
+3. Server Reboot
+4. Inventory files updation
+5. Public/Private Keys
+6. Centralised Log Server
+7. Tomcat Installation
+8. VNC configuration.
+
+-----------------------------------------------
+
 ### Case Studies
 ## 1. Keycloak and Haproxy local installation and update the version of Haproxy (from 1.8.31 to 2.0) without deleting the data.
    * Make a container on docker and run HAproxy on it, Same for the Keycloak.
@@ -42,7 +54,7 @@ Let's documents our learnings on the go..
  
  * [Detailed Repository](https://github.com/Akshaykumar05/Centralized-Log-Server)
    
- ### Tomcat installation
+## 7. Tomcat installation
  1. Download tomcat file 
  2. Un-tar file
  3. Move file to usr/local/
@@ -57,5 +69,5 @@ Let's documents our learnings on the go..
        * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/af0fd3c2-ae67-48b2-9b96-eeb5d65b8c75)
        * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/ef4e13e7-0750-4da0-ab24-21a5cf226770)
 
-
-
+## 8. VNC Configuration
+* **Virtual Network Computing** (VNC) is a free tool that allows a client to connect to a server, and interact with the desktop of the remote machine. The server-side component listens for connections on TCP port 5900 by default.
