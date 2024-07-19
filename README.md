@@ -71,3 +71,4 @@ Let's documents our learnings on the go..
 
 ## 8. VNC Configuration
 * **Virtual Network Computing** (VNC) is a free tool that allows a client to connect to a server, and interact with the desktop of the remote machine. The server-side component listens for connections on TCP port 5900 by default.
+* [Blog](https://linuxize.com/post/how-to-install-and-configure-vnc-on-ubuntu-20-04/)
