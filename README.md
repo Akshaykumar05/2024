@@ -68,7 +68,36 @@ Let's documents our learnings on the go..
     1. First go inside the tomcat2 and check the log files.
        * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/af0fd3c2-ae67-48b2-9b96-eeb5d65b8c75)
        * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/ef4e13e7-0750-4da0-ab24-21a5cf226770)
-
+--------------------------
 ## 8. VNC Configuration
 * **Virtual Network Computing** (VNC) is a free tool that allows a client to connect to a server, and interact with the desktop of the remote machine. The server-side component listens for connections on TCP port 5900 by default.
 * [Blog](https://linuxize.com/post/how-to-install-and-configure-vnc-on-ubuntu-20-04/)
+
+* Install tigerVNC
+* ![image](https://github.com/user-attachments/assets/45b3449e-9ba6-4ea0-9f82-0072c599faab)
+
+* VNC password
+* ![image](https://github.com/user-attachments/assets/b28115a9-05bf-4b21-b8fb-a990fe351234)
+
+* Now start the VNC server using the vncserver command:
+```
+vncserver
+```
+
+* ![image](https://github.com/user-attachments/assets/20eacdfd-9349-48ad-a45e-1d9f91a362e6)
+
+* You can get a list of all the currently running VNC sessions by typing:
+```
+vncserver -list
+```
+![image](https://github.com/user-attachments/assets/37f83cd3-f22b-4d3b-bbe1-0a93b2726405)
+
+* Kill
+```
+vncserver -kill :1
+```
+![image](https://github.com/user-attachments/assets/b56efad6-c06d-4f10-904a-5f5ce3323454)
+
+
+
+
