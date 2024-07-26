@@ -9,9 +9,11 @@ Let's documents our learnings on the go..
 3. Server Reboot
 4. Inventory files updation
 5. Public/Private Keys
-6. Centralised Log Server
-7. Tomcat Installation
-8. VNC configuration.
+6. Architectural Diagrams
+7. Centralised Log Server (Rsyslog)
+8. Tomcat Installation
+9. VNC configuration.
+10. Netbox
 
 -----------------------------------------------
 
