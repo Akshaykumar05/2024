@@ -14,6 +14,7 @@ Let's documents our learnings on the go..
 8. Tomcat Installation
 9. VNC configuration.
 10. Netbox
+11. VPN configuration on VM.
 
 -----------------------------------------------
 
@@ -86,6 +87,7 @@ Let's documents our learnings on the go..
 vncserver
 ```
 
+
 * ![image](https://github.com/user-attachments/assets/20eacdfd-9349-48ad-a45e-1d9f91a362e6)
 
 * You can get a list of all the currently running VNC sessions by typing:
@@ -100,6 +102,8 @@ vncserver -kill :1
 ```
 ![image](https://github.com/user-attachments/assets/b56efad6-c06d-4f10-904a-5f5ce3323454)
 
-
-
+### VPN configuration 
+```
+sudo ./vpn_install.sh 
+```
 
