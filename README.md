@@ -15,6 +15,7 @@ Let's documents our learnings on the go..
 9. VNC configuration.
 10. Netbox
 11. VPN configuration on VM.
+12. Podman Unshare
 
 -----------------------------------------------
 
@@ -107,3 +108,6 @@ vncserver -kill :1
 sudo ./vpn_install.sh 
 ```
 
+## 12. Podman Unshare
+* Podman unshare is useful for troubleshooting unprivileged operations and for manually clearing storage and other data related to images and containers.
+* It is also useful to use the podman mount command. If an unprivileged user wants to mount and work with a container, then they need to execute podman unshare.
