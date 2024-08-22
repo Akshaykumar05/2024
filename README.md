@@ -4,7 +4,7 @@ Yeahh!! So finally we are here in 2024....
 Let's documents our learnings on the go..
 
 ## Index
-1. Keycloakand HAProxy
+1. Keycloak and HAProxy
 2. IP Address
 3. Server Reboot
 4. Inventory files updation
@@ -17,6 +17,7 @@ Let's documents our learnings on the go..
 11. VPN configuration on VM.
 12. Podman Unshare
 13. Docker Private Registry
+14. Podman container with Php 8.2 version
 
 -----------------------------------------------
 
@@ -141,7 +142,11 @@ sudo ./vpn_install.sh
  * Custom Plugins or Middleware: A private registry can be extended with custom plugins or middleware to meet specific requirements, such as automated vulnerability scanning, custom logging, or integration with other internal tools.
 Summary
 In essence, a Docker private registry gives you full control over how Docker images are stored, accessed, and managed. This is particularly important for security, performance, compliance, and cost control in enterprise environments or when dealing with sensitive data.
+-----------
 
+## 14. Podman container with Php 8.2 version
+* In this task we have to create a VM with Ubuntu 20.04 install on it. Then we will setup Php 8.2 version and later will integrate with DB PostgreSQL.
+  
 
 
 
