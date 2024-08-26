@@ -18,6 +18,7 @@ Let's documents our learnings on the go..
 12. Podman Unshare
 13. Docker Private Registry
 14. Podman container with Php 8.2 version
+15. On-prem Infrastructure migration on Cloud
 
 -----------------------------------------------
 
@@ -148,7 +149,8 @@ In essence, a Docker private registry gives you full control over how Docker ima
 * In this task we have to create a VM with Ubuntu 20.04 install on it. Then we will setup Php 8.2 version and later will integrate with DB PostgreSQL.
   
 
-
+## 15. On-prem Infrastructure migration on Cloud
+* Currently NIC have their on-prem infrastructure, and now the organisation migrating it's infra on Jio Cloud. So We need to migrate everything Applications and their servers.  
 
 
 
