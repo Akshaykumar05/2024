@@ -151,7 +151,10 @@ In essence, a Docker private registry gives you full control over how Docker ima
 
 ## 15. On-prem Infrastructure migration on Cloud
 * Currently NIC have their on-prem infrastructure, and now the organisation migrating it's infra on Jio Cloud. So We need to migrate everything-- Applications and their servers.
+  ### Things need to be consider: 
 * First of all we have to ctreate servers on Cloud and then migrate Tomcat instances of the application on Jio Cloud's servers.
+* Log Configuration file
+  
   
 
 
