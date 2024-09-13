@@ -158,8 +158,37 @@ In essence, a Docker private registry gives you full control over how Docker ima
 * Create CICD Jenkins pipelines
 * Zabbix setup for monitoring servers
 * Database connection configuration
-  
-  
+
+-------------------------------
+
+## Server Login
+1. Login to Jump server
+   
+3. login to particular server
+   
+   <img width="524" alt="image" src="https://github.com/user-attachments/assets/bbcf3be9-cc8c-4db1-8870-fbcdc41beb97">
+
+4. See the available content
+   
+   <img width="925" alt="image" src="https://github.com/user-attachments/assets/90ea4ba0-0674-4eef-ae08-0b4f30c1bbc2">
+
+6. Check the tomcat and wars.
+   
+   <img width="653" alt="image" src="https://github.com/user-attachments/assets/6befac22-f3dc-41b1-ab74-94f17094cf7a">
+
+8. Check available tomcats
+   
+   <img width="924" alt="image" src="https://github.com/user-attachments/assets/7e963512-e6e9-449f-8874-bea4627d6b14">
+
+10. Check logs and wars
+    
+   <img width="836" alt="image" src="https://github.com/user-attachments/assets/a15973aa-a750-4c59-bc65-7716cd4a89e8">
+
+12. War details
+    
+   <img width="704" alt="image" src="https://github.com/user-attachments/assets/ffd413e8-9486-4b4f-800f-3f29253fa867">
+
+
   
 
 
