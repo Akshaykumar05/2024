@@ -189,9 +189,10 @@ In essence, a Docker private registry gives you full control over how Docker ima
    <img width="704" alt="image" src="https://github.com/user-attachments/assets/ffd413e8-9486-4b4f-800f-3f29253fa867">
 
 
-
+----------------------------------
 ### SSL Lab
-* [Website to check domain](https://www.ssllabs.com/ssltest/)
+* We need to check the status and validity date of SSL Certificates (of websites)
+* [Website to check domain status](https://www.ssllabs.com/ssltest/)
 
 
 
