@@ -19,6 +19,8 @@ Let's documents our learnings on the go..
 13. Docker Private Registry
 14. Podman container with Php 8.2 version
 15. On-prem Infrastructure migration on Cloud
+16. Rsyslog configuration
+17. Gitlab Upgradation 
 
 -----------------------------------------------
 
@@ -194,6 +196,15 @@ In essence, a Docker private registry gives you full control over how Docker ima
 * We need to check the status and validity date of SSL Certificates (of websites)
 * [Website to check domain status](https://www.ssllabs.com/ssltest/)
 
+
+----------------------------------
+## 16. Rsyslog configuration
+* Configuration: the rsyslog server (10.242.36.24) and sync the log (application, access log and catalina.out) of eDetection Server (10.242.36.130).
+
+
+-----------------------------------
+## 17. Gitlab Upgradation
+* Version (16.11.10--->17.3.4--------->17.4.1) on RHEL 9.4
 
 
 
