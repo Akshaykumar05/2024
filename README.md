@@ -6,21 +6,22 @@ Let's documents our learnings on the go..
 ## Index
 1. Keycloak and HAProxy
 2. IP Address
-3. Server Reboot
-4. Inventory files updation
-5. Public/Private Keys
-6. Architectural Diagrams
-7. Centralised Log Server (Rsyslog)
-8. Tomcat Installation
-9. VNC configuration.
-10. Netbox
-11. VPN configuration on VM.
-12. Podman Unshare
-13. Docker Private Registry
-14. Podman container with Php 8.2 version
-15. On-prem Infrastructure migration on Cloud
-16. Rsyslog configuration
-17. Gitlab Upgradation 
+3. VPN 
+4. Server Reboot
+5. Inventory files updation
+6. Public/Private Keys
+7. Architectural Diagrams
+8. Centralised Log Server (Rsyslog)
+9. Tomcat Installation
+10. VNC configuration.
+11. Netbox
+12. VPN configuration on VM.
+13. Podman Unshare
+14. Docker Private Registry
+15. Podman container with Php 8.2 version
+16. On-prem Infrastructure migration on Cloud
+17. Rsyslog configuration
+18. Gitlab Upgradation 
 
 -----------------------------------------------
 
@@ -34,8 +35,13 @@ Let's documents our learnings on the go..
    * HAProxy is a free and open source software that provides a high availability load balancer and Proxy for TCP and HTTP-based applications that spreads requests across multiple servers.
      
 ## 2. IP address detail list of Staging servers with the information.
+
+------------
+  ## 3. VPN 
+  * [Documentaion of VPN configuration on Uuntu](https://vpn.nic.in/resources/manuals/Manual_for_configuring_VPN_in_Ubuntu_and_RedHat.pdf)
+
    
-## 3. Reboot a Server (Staging: 151)
+## 4. Reboot a Server (Staging: 151)
    * Here we need to reboot a server of Staging environmeet with the specified IP addrees.
    ### Steps:
    * Stop haproxy (systemctl stop haproxy)
@@ -52,18 +58,20 @@ Let's documents our learnings on the go..
    ### After doing this all:
    * Do up all the services: dcoker container, Tomcat and haproxy.
 
-  ## 4. Updation of Inventry Files
+-------------------
 
-  ## 5. Creation of Public and Private Keys
+  ## 5. Updation of Inventry Files
+
+  ## 6. Creation of Public and Private Keys
    * Make user as a root user using ``sudo -i`` command and run the command ``ssh-keygen``.
    * This will generate Public/Private rsa key pair.
 
-## 6. Centralised Log Server
+## 7. Centralised Log Server
  ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/a4b724ce-dd56-47cb-afee-49cf9b9f6cff)
  
  * [Detailed Repository](https://github.com/Akshaykumar05/Centralized-Log-Server)
-   
-## 7. Tomcat installation
+--------------   
+## 8. Tomcat installation
  1. Download tomcat file 
  2. Un-tar file
  3. Move file to usr/local/
@@ -78,7 +86,7 @@ Let's documents our learnings on the go..
        * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/af0fd3c2-ae67-48b2-9b96-eeb5d65b8c75)
        * ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/ef4e13e7-0750-4da0-ab24-21a5cf226770)
 --------------------------
-## 8. VNC Configuration
+## 10. VNC Configuration
 * **Virtual Network Computing** (VNC) is a free tool that allows a client to connect to a server, and interact with the desktop of the remote machine. The server-side component listens for connections on TCP port 5900 by default.
 * [Blog](https://linuxize.com/post/how-to-install-and-configure-vnc-on-ubuntu-20-04/)
 
