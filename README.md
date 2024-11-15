@@ -9,7 +9,7 @@ Let's documents our learnings on the go..
 3. VPN 
 4. Server Reboot
 5. Inventory files updation
-6. Public/Private Keys
+6. Keys Generation (Public/Private)
 7. Architectural Diagrams
 8. Centralised Log Server (Rsyslog)
 9. Tomcat Installation
@@ -65,6 +65,8 @@ Let's documents our learnings on the go..
   ## 6. Creation of Public and Private Keys
    * Make user as a root user using ``sudo -i`` command and run the command ``ssh-keygen``.
    * This will generate Public/Private rsa key pair.
+   ![image](https://github.com/user-attachments/assets/f32a3d6b-c66e-4d11-aa86-c7d29dd8fdce)
+
 
 ## 7. Centralised Log Server
  ![image](https://github.com/Akshaykumar05/NIC/assets/114390890/a4b724ce-dd56-47cb-afee-49cf9b9f6cff)
