@@ -212,6 +212,27 @@ In essence, a Docker private registry gives you full control over how Docker ima
 * Configuration: the rsyslog server (10.242.36.24) and sync the log (application, access log and catalina.out) of eDetection Server (10.242.36.130).
 * Create a log rotation script and configure it for log rotation on Staging environmenet.
 
+  ```
+  cd /u01/etc/logrotate.d
+  ```
+  ```
+  /u01/log/10.246.82.155/vtc_cat/* {
+                daily
+                rotate 370
+                create
+                copytruncate
+                create 700 root root
+                dateext
+                dateyesterday
+                dateformat -%d-%m-%Y
+                compress
+                missingok
+                notifempty
+                olddir /u01/log-archive/10.246.82.155/vtc_cat/
+        }
+  ```
+  
+
 
 -----------------------------------
 ## 17. Gitlab Upgradation
