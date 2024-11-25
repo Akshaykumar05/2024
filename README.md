@@ -21,7 +21,8 @@ Let's documents our learnings on the go..
 15. Podman container with Php 8.2 version
 16. On-prem Infrastructure migration on Cloud
 17. Rsyslog configuration
-18. Gitlab Upgradation 
+18. Gitlab Upgradation
+19. Nexus repo creation
 
 -----------------------------------------------
 
@@ -237,6 +238,10 @@ In essence, a Docker private registry gives you full control over how Docker ima
 -----------------------------------
 ## 17. Gitlab Upgradation
 * Version (16.11.10--->17.3.4--------->17.4.1) on RHEL 9.4
+
+-------------------------
+## 19. Nexus repo creation
+- Create repository in the Nexus
 
 
 
