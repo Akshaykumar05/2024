@@ -212,10 +212,49 @@ In essence, a Docker private registry gives you full control over how Docker ima
 ## 16. Rsyslog configuration
 * Configuration: the rsyslog server (10.242.36.24) and sync the log (application, access log and catalina.out) of eDetection Server (10.242.36.130).
 * Create a log rotation script and configure it for log rotation on Staging environmenet.
-
+---------------------------
+* First login on the server using ssh
+  ```
+  ssh username@server IP
+  ```
+  ```
+  cd /u01/
+  ```
+  ```
+  mkdir log-archive
+  ```
+  ```
+  cd particular ip
+  ```
+* Go inside if there is any file.
+  ```
+  cd OR_VAHAN
+  ```
+  ```
+  ls
+  ```
+  ```
+  cd dash_cat
+  ```
+* Check the path of .log file
+  ```
+  ls -lrth
+  ```
+  
+  ```
+  pwd
+  ```
+* Note the path and update the same path in configuration file of that IP.
+* Edit confif file (path: /etc/logrptate.d)
   ```
   cd /u01/etc/logrotate.d
   ```
+  ```
+  vim IP
+  ```
+ 
+  
+  
   ```
   /u01/log/10.246.82.155/vtc_cat/* {
                 daily
@@ -232,7 +271,22 @@ In essence, a Docker private registry gives you full control over how Docker ima
                 olddir /u01/log-archive/10.246.82.155/vtc_cat/
         }
   ```
-  
+  * Make a directory with the same log-archive path:
+    ```
+    mkdir -P /u01/log-archive/10.246.82.155/vtc_cat/
+    ```
+
+  * Give the permission under path: /u01/log
+    ```
+    chmod -R 755 ../log-archive/
+    ```
+  * Run the Dry run command to check errors if any
+    ```
+    logrotate -d /etc/logrotate.conf
+    ```
+    ```
+    logrotate /etc/logrotate.conf
+    ```
 
 
 -----------------------------------
