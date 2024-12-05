@@ -287,6 +287,11 @@ In essence, a Docker private registry gives you full control over how Docker ima
     ```
     logrotate /etc/logrotate.conf
     ```
+* If need to update the log rotation time, cinfigure in crontab
+    ```
+    vim /etc/crontab
+    ```
+    ![image](https://github.com/user-attachments/assets/cc8738e9-3550-4e57-b051-c7ac6087e9ea)
 
 
 -----------------------------------
