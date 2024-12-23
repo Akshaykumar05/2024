@@ -23,6 +23,7 @@ Let's documents our learnings on the go..
 17. Rsyslog configuration
 18. Gitlab Upgradation
 19. Nexus repo creation
+20. Manual Deployment
 
 -----------------------------------------------
 
@@ -302,5 +303,66 @@ In essence, a Docker private registry gives you full control over how Docker ima
 ## 19. Nexus repo creation
 - Create repository in the Nexus
 
+-----------------------------------------
+## 20. Manual Deployment: eDetection
+### Steps to follow:
+1. Login on the server
+   ```
+   ssh etrans-infra-mon10@10.242.36.130
+   ```
+2. Make user as root
+   ```
+   sudo bash
+   ```
+3. Go to the path
+   ```
+   cd /u01/Vahan_Deployment/edetection_srv1/webapps/
+   ```
+   <img width="814" alt="Manual Deployment eDetection 1" src="https://github.com/user-attachments/assets/e0d2145f-686e-43bf-ad06-130cb7830452" />
+
+
+4. Check the list using 'ls' and 'ls -ltr'. And there you'll find the old war with the same name. So first make a backup of old war with today date. Command:
+   ```
+   mv eDetectionServer.war eDetectionServer.war_23_12_2024
+   ```
+6. Copy to Remote Server
+   ```
+   scp -r eDetectionServer.war etrans-infra-mon10@10.242.36.130:/tmp
+   ```
+7. Copy from Remote Server to local
+   ```
+   cp /tmp/eDetectionServer.war .
+   ```
+   <img width="925" alt="Manual Deploy 2" src="https://github.com/user-attachments/assets/8eca1179-caee-4541-a9af-ef0e930a128d" />
+
+8. Again check, the war is there
+   ```
+   ls -ltr
+   ```
+9. Now go on the 'tmp' and check the war is there or not
+   ```
+   cd /tmp
+   ```
+   ```
+   ls -ltr
+   ```
+   <img width="923" alt="Manual Deploy 3" src="https://github.com/user-attachments/assets/1f6589a0-dca7-440f-8b4c-3f90e852d5cf" />
+
+10. Now go back on the 'webapps' and restart the tomcat:
+    
+   ```
+   systemctl restart tomcat@edetection_srvr
+   ```
+   <img width="922" alt="image" src="https://github.com/user-attachments/assets/bde699ed-fc7d-48bd-b001-7ef30924b87d" />
+
+11. Check
+    ```
+    ps -ef | grep edetection_srv1
+    ```
+    
+    <img width="924" alt="image" src="https://github.com/user-attachments/assets/f45bd7a6-3aba-460a-b10e-fc145cd0a267" />
+    ![Uploading image.png…]()
+
+12. 
 
 
