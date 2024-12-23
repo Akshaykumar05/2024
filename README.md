@@ -359,10 +359,17 @@ In essence, a Docker private registry gives you full control over how Docker ima
     ```
     ps -ef | grep edetection_srv1
     ```
-    
-    <img width="924" alt="image" src="https://github.com/user-attachments/assets/f45bd7a6-3aba-460a-b10e-fc145cd0a267" />
-    ![Uploading image.png…]()
+    <img width="539" alt="image" src="https://github.com/user-attachments/assets/97774922-0080-4683-a887-880f0f842856" />
 
-12. 
+12. Change the location of Backup
+    ```
+    mv eDetectionServer.war_23_12_2024 /u01/backup_edtn/
+    ```
+    ```
+    ls -ltrh
+    ```
+    <img width="924" alt="image" src="https://github.com/user-attachments/assets/f45bd7a6-3aba-460a-b10e-fc145cd0a267" />
+    
+
 
 
