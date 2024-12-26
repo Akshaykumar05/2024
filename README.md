@@ -382,8 +382,29 @@ In essence, a Docker private registry gives you full control over how Docker ima
    ```
    <img width="925" alt="image" src="https://github.com/user-attachments/assets/08aaaed2-477e-4d55-b853-bf9f327bcdae" />
 
-1. 
-   
+2. Check either build has been opload on remote server
+   ```
+   ls -ltrh
+   ```
+   <img width="922" alt="image" src="https://github.com/user-attachments/assets/9f33455a-fb04-498f-a9db-349b40fff7d8" />
 
+   As we can see in the image that zip file of build has been there on Remote server. So we'll make a backup of previous buils with same name and unzip the build.
 
+   <img width="922" alt="image" src="https://github.com/user-attachments/assets/6970c797-b98f-4ad5-9488-605c5b641162" />
+
+   ```
+   unzip eDetection.zip
+   ```
+
+3. Now send build to remote server and change the permission of eDetection (500 from 755).
+   ```
+   cp -r /tmp/eDetection .
+   ```
+   ```
+   chmod -R 500 eDetection
+   ```
+
+   <img width="615" alt="image" src="https://github.com/user-attachments/assets/9f106070-b3ee-4867-b84d-3385b0dfb3ea" />
+
+   Note: Here no need to restart the Tomcat since this is a Angular war.
 
