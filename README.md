@@ -370,6 +370,20 @@ In essence, a Docker private registry gives you full control over how Docker ima
     ```
     <img width="924" alt="image" src="https://github.com/user-attachments/assets/f45bd7a6-3aba-460a-b10e-fc145cd0a267" />
     
+### Angular build Deployment
+* In this manual deployment all the process is same except restart of Tomcat.
+#### Steps:
+1. Download the build from Nexus (use different terminal, go in Download)
+   ```
+   ls -ltrh
+   ```
+   ```
+   scp -r eDetection.zip  etrans-infra-mon10@10.242.36.130:/tmp
+   ```
+   <img width="925" alt="image" src="https://github.com/user-attachments/assets/08aaaed2-477e-4d55-b853-bf9f327bcdae" />
+
+1. 
+   
 
 
 
