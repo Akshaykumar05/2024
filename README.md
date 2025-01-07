@@ -24,6 +24,7 @@ Let's documents our learnings on the go..
 18. Gitlab Upgradation
 19. Nexus repo creation
 20. Manual Deployment
+21. Graylog Configuration
 
 -----------------------------------------------
 
