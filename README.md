@@ -409,3 +409,10 @@ In essence, a Docker private registry gives you full control over how Docker ima
 
    Note: Here no need to restart the Tomcat since this is a Angular war.
 
+4. Send the backup file to the backup path.
+   ```
+   mv eDetection_15_01_2025 /u01/backup_edtn/
+   ```
+   ![edection_backup](https://github.com/user-attachments/assets/d618400a-dfb8-4cde-b8d9-144d9dde3c4c)
+
+
