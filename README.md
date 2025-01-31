@@ -289,6 +289,14 @@ In essence, a Docker private registry gives you full control over how Docker ima
     ```
     logrotate /etc/logrotate.conf
     ```
+
+* Restart the Rsyslog service
+    ```
+    systemctl restart rsyslog
+    ```
+    ```
+    systemctl status rsyslog
+    ```
 * If need to update the log rotation time, cinfigure in crontab
     ```
     vim /etc/crontab
