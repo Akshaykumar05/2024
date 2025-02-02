@@ -315,6 +315,9 @@ In essence, a Docker private registry gives you full control over how Docker ima
 -----------------------------------------
 ## 20. Manual Deployment: eDetection
 ### Steps to follow:
+#### Pre-requisite
+* Delete the old war in the local Download (if there is any) and "tmp" folder of the server.
+* Download the war from **Nexus** ```10.246.40.241/Nexus``` to the local
 1. Login on the server
    ```
    ssh etrans-infra-mon10@10.242.36.130
@@ -323,32 +326,7 @@ In essence, a Docker private registry gives you full control over how Docker ima
    ```
    sudo bash
    ```
-3. Go to the path
-   ```
-   cd /u01/Vahan_Deployment/edetection_srv1/webapps/
-   ```
-   <img width="814" alt="Manual Deployment eDetection 1" src="https://github.com/user-attachments/assets/e0d2145f-686e-43bf-ad06-130cb7830452" />
-
-
-4. Check the list using 'ls' and 'ls -ltr'. And there you'll find the old war with the same name. So first make a backup of old war with today date. Command:
-   ```
-   mv eDetectionServer.war eDetectionServer.war_23_12_2024
-   ```
-6. Copy to Remote Server
-   ```
-   scp -r eDetectionServer.war etrans-infra-mon10@10.242.36.130:/tmp
-   ```
-7. Copy from Remote Server to local
-   ```
-   cp /tmp/eDetectionServer.war .
-   ```
-   <img width="925" alt="Manual Deploy 2" src="https://github.com/user-attachments/assets/8eca1179-caee-4541-a9af-ef0e930a128d" />
-
-8. Again check, the war is there
-   ```
-   ls -ltr
-   ```
-9. Now go on the 'tmp' and check the war is there or not
+3. Go on the 'tmp' and check the war is there or not (delete the old war if there is using the commamd ```rm -rf eDetectionServer.war```)
    ```
    cd /tmp
    ```
@@ -357,20 +335,61 @@ In essence, a Docker private registry gives you full control over how Docker ima
    ```
    <img width="923" alt="Manual Deploy 3" src="https://github.com/user-attachments/assets/1f6589a0-dca7-440f-8b4c-3f90e852d5cf" />
 
-10. Now go back on the 'webapps' and restart the tomcat:
+4. Now go to the Tomcat path
+   ```
+   cd /u01/Vahan_Deployment/edetection_srv1/webapps/
+   ```
+   <img width="814" alt="Manual Deployment eDetection 1" src="https://github.com/user-attachments/assets/e0d2145f-686e-43bf-ad06-130cb7830452" />
+
+5. Check the list using 'ls' and 'ls -ltr'. And there you'll find the old war with the same name. So first make a backup of old war with today date. Command:
+   ```
+   mv eDetectionServer.war eDetectionServer.war_23_12_2024
+   ```
+6. Copy to "tmp" folder on Remote Server from local Server (this command should be run on your local "Dowanload")
+   ```
+   scp -r eDetectionServer.war etrans-infra-mon10@10.242.36.130:/tmp
+   ```
+7. Now Copy from "tmp" folder to "webapp" folder 
+   ```
+   cp /tmp/eDetectionServer.war .
+   ```
+   <img width="925" alt="Manual Deploy 2" src="https://github.com/user-attachments/assets/8eca1179-caee-4541-a9af-ef0e930a128d" />
+
+8. Check the war in webapps it should be today's date
+   ```
+   ls -ltr
+   ```
+9. Now go back on the 'webapps' and restart the tomcat:
     
    ```
    systemctl restart tomcat@edetection_srvr
    ```
    <img width="922" alt="image" src="https://github.com/user-attachments/assets/bde699ed-fc7d-48bd-b001-7ef30924b87d" />
 
-11. Check
+10. Lists all running processes with detailed information on ``edetection_srv1``` Tomcat.
     ```
     ps -ef | grep edetection_srv1
     ```
     <img width="539" alt="image" src="https://github.com/user-attachments/assets/97774922-0080-4683-a887-880f0f842856" />
 
-12. Change the location of Backup
+    * Terminate the process
+    ```
+    kill -9 PID
+    ```
+    * Verified it was stopped:
+    ```
+    ps -ef | grep edetection_srv1
+    ```
+    * The process was no longer running (only the grep command appeared).
+    * Restarted the service:
+    ```
+    cd ../bin/
+    sh startup.sh
+    ```
+    <img width="924" alt="tc" src="https://github.com/user-attachments/assets/1bd10a96-7df9-4328-8d25-d801268fb0c2" />
+
+
+11. Change the location of Backup
     ```
     mv eDetectionServer.war_23_12_2024 /u01/backup_edtn/
     ```
