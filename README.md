@@ -211,9 +211,9 @@ In essence, a Docker private registry gives you full control over how Docker ima
 
 
 ----------------------------------
-## 16. Rsyslog configuration
+## 16. Log-Archive configuration
 * Configuration: the rsyslog server (10.242.36.24) and sync the log (application, access log and catalina.out) of eDetection Server (10.242.36.130).
-* Create a log rotation script and configure it for log rotation on Staging environmenet.
+* Create a log rotation script and configure it for log rotation on Production environmenet.
 ---------------------------
 * First login on the server using ssh
   ```
