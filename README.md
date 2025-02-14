@@ -23,8 +23,9 @@ Let's documents our learnings on the go..
 17. Rsyslog configuration
 18. Gitlab Upgradation
 19. Nexus repo creation
-20. Manual Deployment
+20. Manual Deployment : eDetection (10.142.36.130)
 21. Graylog Configuration
+22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
 
 -----------------------------------------------
 
@@ -213,9 +214,9 @@ In essence, a Docker private registry gives you full control over how Docker ima
 ----------------------------------
 ## 16. Log-Archive configuration
 * Configuration: the rsyslog server (10.242.36.24) and sync the log (application, access log and catalina.out) of eDetection Server (10.242.36.130).
-* Create a log rotation script and configure it for log rotation on **Log Central Server** (10.192.88.155) of Production environmenet.
+* Create a log rotation script and configure it for log rotation on **Log Central Server** (10.242.36.24) of Production environmenet.
 ---------------------------
-* First login on the server using ssh
+* First login on the Master server (10.242.36.24) using ssh
   ```
   ssh username@server IP
   ```
@@ -252,13 +253,13 @@ In essence, a Docker private registry gives you full control over how Docker ima
   cd /u01/etc/logrotate.d
   ```
   ```
-  vim IP
+  vim IP (10.242.36.130)
   ```
  
-  
+  Do all the log-archive entries of application, access log and catalina.out in the file with following script.
   
   ```
-  /u01/log/10.246.82.155/vtc_cat/* {
+  /u01/log/10.242.36.130/vtc_cat/* {
                 daily
                 rotate 370
                 create
@@ -270,12 +271,12 @@ In essence, a Docker private registry gives you full control over how Docker ima
                 compress
                 missingok
                 notifempty
-                olddir /u01/log-archive/10.246.82.155/vtc_cat/
+                olddir /u01/log-archive/10.242.36.130/vtc_cat/
         }
   ```
   * Make a directory with the same log-archive path:
     ```
-    mkdir -P /u01/log-archive/10.246.82.155/vtc_cat/
+    mkdir -P /u01/log-archive/10.242.36.130/vtc_cat/
     ```
 
   * Give the permission under path: /u01/log
@@ -441,5 +442,14 @@ In essence, a Docker private registry gives you full control over how Docker ima
    mv eDetection_15_01_2025 /u01/backup_edtn/
    ```
    ![edection_backup](https://github.com/user-attachments/assets/d618400a-dfb8-4cde-b8d9-144d9dde3c4c)
+
+## 22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
+* Case Study: Currently we do the manual deployment of eDetection Server but now we need to automate the deployment using Jenkins.
+* What to do : We need to create the epositories on Nexus, CICD pipelines on Jenkins and configure the Inventory file, yml file and create the roles for Ansible. (First we will do all on staging environment for testing purpose, later on Production.)
+
+### Tools:
+1. Nexus
+2. Ansible
+3. Jenkins
 
 
