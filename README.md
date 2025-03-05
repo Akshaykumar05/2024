@@ -443,6 +443,9 @@ In essence, a Docker private registry gives you full control over how Docker ima
    ```
    ![edection_backup](https://github.com/user-attachments/assets/d618400a-dfb8-4cde-b8d9-144d9dde3c4c)
 
+   [eDetection Website](https://vahan.parivahan.gov.in/eDetection/#/login)
+   
+
 ## 22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
 * Case Study: Currently we do the manual deployment of eDetection Server but now we need to automate the deployment using Jenkins.
 * What to do : We need to create the epositories on Nexus, CICD pipelines on Jenkins and configure the Inventory file, yml file and create the roles for Ansible. (First we will do all on staging environment for testing purpose, later on Production.)
