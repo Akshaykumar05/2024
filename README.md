@@ -444,6 +444,13 @@ In essence, a Docker private registry gives you full control over how Docker ima
    ![edection_backup](https://github.com/user-attachments/assets/d618400a-dfb8-4cde-b8d9-144d9dde3c4c)
 
    [eDetection Website](https://vahan.parivahan.gov.in/eDetection/#/login)
+
+   --------------------------------------------------------
+   ### Troubleshoot: eDetection Url not working
+
+   <img width="794" alt="image" src="https://github.com/user-attachments/assets/7a464cde-d719-4b20-a36c-ab176560ed4c" />
+
+   
    
 
 ## 22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
