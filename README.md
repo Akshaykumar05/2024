@@ -26,6 +26,9 @@ Let's documents our learnings on the go..
 20. Manual Deployment : eDetection (10.142.36.130)
 21. Graylog Configuration
 22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
+23. Port issue (Port down on any Server)
+24. Space utilization issue (Disk space low < 85 %)
+25. Load issue on a Server (Load average high)
 
 -----------------------------------------------
 
