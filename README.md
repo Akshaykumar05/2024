@@ -29,7 +29,8 @@ Let's documents our learnings on the go..
 23. Port issue (Port down on any Server)
 24. Space utilization issue (Disk space low < 85 %)
 25. Load issue on a Server (Load average high)
-
+26. Tomcat installation and Configuration
+27. Php Application (RHEL, httpd, MySql)
 -----------------------------------------------
 
 ### Case Studies
@@ -465,4 +466,9 @@ In essence, a Docker private registry gives you full control over how Docker ima
 2. Ansible
 3. Jenkins
 
+## 26. Tomcat installation and Configuration
+Documentation file of this task has been saved to the NIC folder.
+
+## 27. Php MySql Website
+In this task we have to setup a phpMySql Website (using RHEL, httpd) and configure this with the Git to make commits according to the changes need.
 
