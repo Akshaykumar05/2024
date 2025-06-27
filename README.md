@@ -493,3 +493,8 @@ A Kafka topic is like a "channel" or "category"
 * **Producer**: An application or process that sends events to Kafka topics. Producers write data to Kafka.
 * **Consumer**: An application or process that reads events from Kafka topics. Consumer subscribe the data.
 
+#### Kafka Partition
+A partition is a substitution of a Kafka topic. Topics can have multiple partitions so data can be spread out across brokers. 
+
+Each partition maintains a sequential order of messages, allowing parallel read and write for higher performance.
+
