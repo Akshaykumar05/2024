@@ -31,6 +31,8 @@ Let's documents our learnings on the go..
 25. Load issue on a Server (Load average high)
 26. Tomcat installation and Configuration
 27. Php Application (RHEL, httpd, MySql)
+28. Build CI/CD Pipeline
+29. Apache Kafka 
 -----------------------------------------------
 
 ### Case Studies
@@ -471,4 +473,23 @@ Documentation file of this task has been saved to the NIC folder.
 
 ## 27. Php MySql Website
 In this task we have to setup a phpMySql Website (using RHEL, httpd) and configure this with the Git to make commits according to the changes need.
+
+## 29. Apache Kafka
+A distributed streaming platform, it allows application to send, store & process data in real time.
+#### Benefits
+* Scalability: Handle large amount of data
+* Fault Tolerance: Replication of data
+* High Throughput: Capable of processing millions of messages per seconds.
+* Durability: Reliable storage of messages.
+
+#### Kafka Broker
+When you run Kafka, you start one or more "broker" processes. It is basically the server (or node) in a Kafka cluster.
+ * Stores messages
+ * Handle read/write requests
+
+#### Kafka Topic
+A Kafka topic is like a "channel" or "category" 
+
+* **Producer**: An application or process that sends events to Kafka topics. Producers write data to Kafka.
+* **Consumer**: An application or process that reads events from Kafka topics. Consumer subscribe the data.
 
