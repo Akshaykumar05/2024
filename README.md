@@ -32,7 +32,8 @@ Let's documents our learnings on the go..
 26. Tomcat installation and Configuration
 27. Php Application (RHEL, httpd, MySql)
 28. Build CI/CD Pipeline
-29. Apache Kafka 
+29. Apache Kafka
+30. Swap memory (isuue resolve)
 -----------------------------------------------
 
 ### Case Studies
@@ -497,4 +498,26 @@ A Kafka topic is like a "channel" or "category"
 A partition is a substitution of a Kafka topic. Topics can have multiple partitions so data can be spread out across brokers. 
 
 Each partition maintains a sequential order of messages, allowing parallel read and write for higher performance.
+
+## 30. Swap memory (isuue resolve)
+Use case: If there is the issue of **Swap memory** use on a Server, then we need to troubleshoot with following command.
+
+### Steps:
+1. Check current memory and disk usage
+   ```
+   free -m
+   ```
+   Displays memory usage in megabytes.
+   Look for:
+   * ```total / used / free RAM```
+   * ```swap usage```
+
+   ```
+   df -hT
+   ```
+   Shows disk usage
+
+
+
+
 
