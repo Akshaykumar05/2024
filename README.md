@@ -33,7 +33,8 @@ Let's documents our learnings on the go..
 27. Php Application (RHEL, httpd, MySql)
 28. Build CI/CD Pipeline
 29. Apache Kafka
-30. Swap memory (isuue resolve)
+30. Swap memory (isue resolve)
+31. ELK 
 -----------------------------------------------
 
 ### Case Studies
@@ -452,14 +453,14 @@ In essence, a Docker private registry gives you full control over how Docker ima
 
    [eDetection Website](https://vahan.parivahan.gov.in/eDetection/#/login)
 
-   --------------------------------------------------------
+   -------------------------------------------------------------
    ### Troubleshoot: eDetection Url not working
 
    <img width="794" alt="image" src="https://github.com/user-attachments/assets/7a464cde-d719-4b20-a36c-ab176560ed4c" />
 
    
    
-
+------------------------------------------------------------------------------
 ## 22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
 * Case Study: Currently we do the manual deployment of eDetection Server but now we need to automate the deployment using Jenkins.
 * What to do : We need to create the epositories on Nexus, CICD pipelines on Jenkins and configure the Inventory file, yml file and create the roles for Ansible. (First we will do all on staging environment for testing purpose, later on Production.)
@@ -469,12 +470,15 @@ In essence, a Docker private registry gives you full control over how Docker ima
 2. Ansible
 3. Jenkins
 
+-------------------------------------------------------------------------------
 ## 26. Tomcat installation and Configuration
 Documentation file of this task has been saved to the NIC folder.
 
+----------------------------------------------------------------------------------
 ## 27. Php MySql Website
 In this task we have to setup a phpMySql Website (using RHEL, httpd) and configure this with the Git to make commits according to the changes need.
 
+--------------------------------------------------------------------------------
 ## 29. Apache Kafka
 A distributed streaming platform, it allows application to send, store & process data in real time.
 #### Benefits
@@ -498,7 +502,7 @@ A Kafka topic is like a "channel" or "category"
 A partition is a substitution of a Kafka topic. Topics can have multiple partitions so data can be spread out across brokers. 
 
 Each partition maintains a sequential order of messages, allowing parallel read and write for higher performance.
-
+-----------------------------------------------------------------------------------------------
 ## 30. Swap memory (isuue resolve)
 Use case: If there is the issue of **Swap memory** use on a Server, then we need to troubleshoot with following command.
 
@@ -516,6 +520,39 @@ Use case: If there is the issue of **Swap memory** use on a Server, then we need
    df -hT
    ```
    Shows disk usage
+-------------------------------------------------------------------------------
+## 31. ELK 
+ELK = Elasticsearch + Logstash + Kibana
+It's a powerful open-source log analysis and visualization system widely used in DevOps and Kubernetes environments.
+### Components:
+1. Elasticsearch
+- A distributed search & analytics engine.
+- Stores all logs centrally.
+- Fast search, filtering, aggregation.
+
+2. Logstash (or Fluent Bit)
+- A data pipeline tool.
+- Collects, processes, and forwards logs.
+- Can transform logs, parse JSON, etc.
+
+3. Kibana
+- Web UI to visualize data stored in Elasticsearch.
+- Dashboards, charts, and real-time log searches.
+
+### Using ELK in Kubernetes (K8s)
+In Kubernetes, each Pod or Container writes logs to stdout and stderr. These logs are picked up using log forwarders and sent to ELK.
+
+### You can deploy ELK using:
+* Helm charts (recommended)
+* YAML manifests
+* Elastic Operator (for advanced users)
+
+### Recommended Stack for K8s:
+Fluent Bit → Elasticsearch → Kibana
+
+Why?
+* Logstash is heavy.
+* Fluent Bit is lightweight, designed for K8s, and more resource-efficient.
 
 
 
