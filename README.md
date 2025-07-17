@@ -522,22 +522,25 @@ Use case: If there is the issue of **Swap memory** use on a Server, then we need
    Shows disk usage
 -------------------------------------------------------------------------------
 ## 31. ELK 
+<img width="346" height="146" alt="image" src="https://github.com/user-attachments/assets/98df61de-3489-4810-b484-3d01b5b5080b" />
+
 ELK = Elasticsearch + Logstash + Kibana
+
 It's a powerful open-source log analysis and visualization system widely used in DevOps and Kubernetes environments.
 ### Components:
 1. Elasticsearch
-- A distributed search & analytics engine.
-- Stores all logs centrally.
-- Fast search, filtering, aggregation.
+ - A distributed search & analytics engine.
+ - Stores all logs centrally.
+ - Fast search, filtering, aggregation.
 
 2. Logstash (or Fluent Bit)
-- A data pipeline tool.
-- Collects, processes, and forwards logs.
-- Can transform logs, parse JSON, etc.
+ - A data pipeline tool.
+ - Collects, processes, and forwards logs.
+ - Can transform logs, parse JSON, etc.
 
 3. Kibana
-- Web UI to visualize data stored in Elasticsearch.
-- Dashboards, charts, and real-time log searches.
+ - Web UI to visualize data stored in Elasticsearch.
+ - Dashboards, charts, and real-time log searches.
 
 ### Using ELK in Kubernetes (K8s)
 In Kubernetes, each Pod or Container writes logs to stdout and stderr. These logs are picked up using log forwarders and sent to ELK.
