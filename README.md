@@ -34,7 +34,8 @@ Let's documents our learnings on the go..
 28. Build CI/CD Pipeline
 29. Apache Kafka
 30. Swap memory (isue resolve)
-31. ELK 
+31. ELK
+32. K8s Deployment (PariwanSewa)
 -----------------------------------------------
 
 ### Case Studies
