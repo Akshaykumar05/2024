@@ -558,6 +558,13 @@ Why?
 * Logstash is heavy.
 * Fluent Bit is lightweight, designed for K8s, and more resource-efficient.
 
+## 32. K8s Deployment (PariwanSewa)
+Here are the steps to deploy files manually on the staging environment on K8s.
+
+### Steps:
+1. Login on the server
+2. Go to ```tmp``` folder, and enter in the last created folder where all the deployable files are stored.
+    
 
 
 
