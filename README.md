@@ -569,8 +569,10 @@ Here are the steps to deploy files manually on the staging environment on K8s.
 
 3. As in above screenshot there is ```23_2ndparivahan``` directory
 
-   
-    
+   ![k8s deploy2](https://github.com/user-attachments/assets/11afdf1c-8fd5-4035-9b04-1f4520a1cbbd)
+
+4. Create the backup first of all  the file with current date.
+5. 
 
 
 
