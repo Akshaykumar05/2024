@@ -564,6 +564,12 @@ Here are the steps to deploy files manually on the staging environment on K8s.
 ### Steps:
 1. Login on the server
 2. Go to ```tmp``` folder, and enter in the last created folder where all the deployable files are stored.
+   
+   ![k8s deploy1](https://github.com/user-attachments/assets/ab23e7be-5668-4f0b-a62c-1c76a23753f7)
+
+3. As in above screenshot there is ```23_2ndparivahan``` directory
+
+   
     
 
 
