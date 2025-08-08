@@ -574,9 +574,49 @@ Here are the steps to deploy files manually on the staging environment on K8s.
    ![k8s deploy2](https://github.com/user-attachments/assets/11afdf1c-8fd5-4035-9b04-1f4520a1cbbd)
 
 4. Create the backup first of all  the file with current date.
-
+--------------------------------------------------------------------------
 ## 33. Docker build (Pariwanseva)
+  In this task, we need to create docker build and send it to the K8s server (Parivahanseva)
 
+### Steps:
+1. Get 4 files---> .tar (on local)
+   --- docker load
+   --- docker tag
+
+2. Gitlab----> search "paidnr"
+3. Branch Change----> production
+4. Download-----> tar.gz
+
+5. Send tar file to "tmp" and extract there
+   ```
+   cp vahan-paidnrsearchservice-production.tar.gz /tmp
+   ```
+5. Extract tar (inside tmp)
+   ```
+   tar -xvzf vahan-paidnrsearchservice-production.tar.gz
+   ```
+6. Create a directory----> paidnr
+7. Edit Dockerfile -----> vim dockerfile------> From: maven:latest as build
+
+8. Build file (VPN disconnect)
+   ```
+   docker build -t paidnrsearchservices_v1 -f Docker_jenkins .
+   ```
+   ```
+   docker build -t paidnrui_v4 -f dockerfile .
+   ```
+9. Check build
+   ```
+   docker images
+   ```
+10. Save 
+    ```
+    docker save -o  paidnrsearchservices_v1.tar f2323d0687ee
+    ```
+    ```
+    scp -rp  paidnrsearchservices_v1.tar etrans-infra-mon10@10.192.188.222:/tmp
+    ```
+    -------------------------------------------------------------------------------
 ## 34. Logs check for k8s nodes (paidnr-app)
    In this task we have to check the daily logs of K8s pod (suggested services/app) and send them to the required Developer.
    ### Steps:
