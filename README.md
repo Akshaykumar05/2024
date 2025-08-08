@@ -35,7 +35,9 @@ Let's documents our learnings on the go..
 29. Apache Kafka
 30. Swap memory (isue resolve)
 31. ELK
-32. K8s Deployment (PariwanSewa)
+32. K8s Deployment (Pariwanseva)
+33. Docker build (Pariwanseva)
+34. Logs check for k8s nodes (paidnr-app)
 -----------------------------------------------
 
 ### Case Studies
@@ -572,8 +574,24 @@ Here are the steps to deploy files manually on the staging environment on K8s.
    ![k8s deploy2](https://github.com/user-attachments/assets/11afdf1c-8fd5-4035-9b04-1f4520a1cbbd)
 
 4. Create the backup first of all  the file with current date.
-5. 
 
+## 33. Docker build (Pariwanseva)
+
+## 34. Logs check for k8s nodes (paidnr-app)
+   In this task we have to check the daily logs of K8s pod (suggested services/app) and send them to the required Developer.
+   ### Steps:
+   1. Login to the jump server
+   2. check pods details
+      ```
+       kubectl get all -n paidnr-app
+      ```
+      ```
+      kubectl get pods -n paidnr-app
+      ```
+   3. Check logs of the given service (paidnr-app)
+      ```
+      kubectl logs -f vahan-paidnrgateway-6466b6c984-676zr -n paidnr-app
+      ``` 
 
 
 
