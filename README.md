@@ -238,7 +238,7 @@ In essence, a Docker private registry gives you full control over how Docker ima
   mkdir log-archive
   ```
   ```
-  cd particular ip
+  cd particular ip (of client server)
   ```
 * Go inside if there is any file.
   ```
@@ -263,14 +263,16 @@ In essence, a Docker private registry gives you full control over how Docker ima
   ```
   cd /u01/etc/logrotate.d
   ```
+
+ * Create file (named of client IPs) and edit the log-rorate configurations 
   ```
-  vim IP (10.242.36.130)
+  vim 10.242.36.130
   ```
  
   Do all the log-archive entries of application, access log and catalina.out in the file with following script.
   
   ```
-  /u01/log/10.242.36.130/vtc_cat/* {
+  /u01/log/10.242.36.130/vtc_cat/*.log {
                 daily
                 rotate 370
                 create
@@ -287,12 +289,12 @@ In essence, a Docker private registry gives you full control over how Docker ima
   ```
   * Make a directory with the same log-archive path:
     ```
-    mkdir -P /u01/log-archive/10.242.36.130/vtc_cat/
+    mkdir -p /u01/log-archive/10.242.36.130/vtc_cat/
     ```
 
-  * Give the permission under path: /u01/log
+  * Update the permission under path: /u01/
     ```
-    chmod -R 755 ../log-archive/
+    chmod -R 755 log-archive
     ```
   * Run the Dry run command to check errors if any
     ```
