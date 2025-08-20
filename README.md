@@ -642,6 +642,37 @@ Here are the steps to deploy files manually on the staging environment on K8s.
     2. Volume
     3. Port
 
+    Step.1 Login on the server 
+    
+    ```
+    ssh etrans-infra-mon11@10.192.88.232
+    ```
+    ```
+    ssh etrans-infra-mon11@10.192.88.183
+    ```
+    Step.2 Check the running images
+    
+    ```
+    podman images
+    ```
+    ```
+    podman ps -a
+    ```
+    Step.3 Make/save tar files of all four running imgaes
+    
+    ```
+    podman save -o zookeeper.tar e15fcb51736e
+    ```
+    Step.4 send these tar files to local from the server
+    
+    ```
+    scp -o ProxyJump=etrans-infra-mon10@10.192.88.232 -rp  etrans-infra-mon11@10.192.88.183:/tmp/tarimages .
+    ```
+    Step.5 Now send them from local to req. server
+    
+    ```
+    scp -r /home/nic/tarimages etrans-infra-mon11@10.192.188.222:/tmp
+    ```
     
 
 
