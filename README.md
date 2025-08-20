@@ -637,12 +637,13 @@ Here are the steps to deploy files manually on the staging environment on K8s.
       ``` 
 
  ## 35. Container images migration 
+ 
     We need to migrate the Podman container from one server to another. Three things need to be consider during this:
     1. Image
-    2. Volume
-    3. Port
+    2. Volume  (data persistence)
+    3. Port (container-to-host mapping)
 
-    Step.1 Login on the server 
+    Step.1 Login to Source Servers
     
     ```
     ssh etrans-infra-mon11@10.192.88.232
