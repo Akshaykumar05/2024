@@ -38,6 +38,7 @@ Let's documents our learnings on the go..
 32. K8s Deployment (Pariwanseva)
 33. Docker build (Pariwanseva)
 34. Logs check for k8s nodes (paidnr-app)
+35. Container images migration
 -----------------------------------------------
 
 ### Case Studies
@@ -635,5 +636,12 @@ Here are the steps to deploy files manually on the staging environment on K8s.
       kubectl logs -f vahan-paidnrgateway-6466b6c984-676zr -n paidnr-app
       ``` 
 
+ ## 35. Container images migration 
+    We need to migrate the Podman container from one server to another. Three things need to be consider during this:
+    1. Image
+    2. Volume
+    3. Port
+
+    
 
 
