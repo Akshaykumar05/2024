@@ -36,9 +36,10 @@ Let's documents our learnings on the go..
 30. Swap memory (isue resolve)
 31. ELK
 32. K8s Deployment (Pariwanseva)
-33. Docker build (Pariwanseva)
-34. Logs check for k8s nodes (paidnr-app)
-35. Container images migration
+33. Daily Running commands K8s
+34. Docker build (Pariwanseva)
+35. Logs check for k8s nodes (paidnr-app)
+36. Container images migration
 -----------------------------------------------
 
 ### Case Studies
@@ -578,6 +579,34 @@ Here are the steps to deploy files manually on the staging environment on K8s.
 
 4. Create the backup first of all  the file with current date.
 --------------------------------------------------------------------------
+
+33. Daily Running commands K8s
+    * To see the nodes
+      ```
+      kubectl get nodes
+      ```
+
+    * To see the IP of nodes
+      ```
+      kubectl get nodes -o wide
+      ```
+    * To see the namespace
+      ```
+      kubectl get ns
+      ```
+    * To see the namespace of specific pod
+      ```
+      kubectl get pods -n vahan-api
+      ```
+    * Deployment
+      ```
+      kubectl get deploy -n vahan-api
+      ```
+    * Service
+      ```
+      kubectl get svc -n vahan-api
+      ```
+-----------------
 ## 33. Docker build (Pariwanseva)
   In this task, we need to create docker build and send it to the K8s server (Parivahanseva)
 
