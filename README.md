@@ -40,6 +40,7 @@ Let's documents our learnings on the go..
 34. Docker build (Pariwanseva)
 35. Logs check for k8s nodes (paidnr-app)
 36. Container images migration
+37. Message-Report-Service Migration
 -----------------------------------------------
 
 ### Case Studies
@@ -704,5 +705,20 @@ Here are the steps to deploy files manually on the staging environment on K8s.
     scp -r /home/nic/tarimages etrans-infra-mon11@10.192.188.222:/tmp
     ```
     
+------------------------------------------
+## 37. Message-Report-Service Migration
+We need to migrate the **msg-rept-bck** service from a server (10.246.82.142) to another server (10.192.88.195) with all the dependencies.
+Check the Tomcat and Java version, which need to be migrate, and also port Openeings (outbound).
+### Steps:
+* Access the old server 10.246.82.142
+  ```
+  ssh user@Server_IP
+  ```
+* Go to the path ```/u01/Deployment_Vahan/Tomcat_Instance```
+* Check port of java
+```
+netstat -tulnp | grep 2853235
+```
+<img width="843" height="62" alt="image" src="https://github.com/user-attachments/assets/bf406df4-4f2a-426c-a0a5-e4466631deb0" />
 
 
