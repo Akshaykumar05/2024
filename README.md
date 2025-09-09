@@ -707,9 +707,12 @@ Here are the steps to deploy files manually on the staging environment on K8s.
     
 ------------------------------------------
 ## 37. Message-Report-Service Migration
-We need to migrate the **msg-rept-bck** service from a server (10.246.82.142) to another server (10.192.88.195) with all the dependencies.
+1. We need to migrate the **msg-rept-bck** service from a server (10.246.82.142) to another server (10.192.88.195) with all the dependencies.
 Check the Tomcat and Java version, which need to be migrate, and also port Openeings (outbound).
-### Steps:
+2. HA Proxy entry
+3. CICD Pipeline
+   
+### Migration Steps:
 * Access the old server 10.246.82.142
   ```
   ssh user@Server_IP
