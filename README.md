@@ -41,6 +41,7 @@ Let's documents our learnings on the go..
 35. Logs check for k8s nodes (paidnr-app)
 36. Container images migration
 37. Message-Report-Service Migration
+38. Pushing an image to a private Docker registry
 -----------------------------------------------
 
 ### Case Studies
@@ -724,4 +725,35 @@ netstat -tulnp | grep 2853235
 ```
 <img width="843" height="62" alt="image" src="https://github.com/user-attachments/assets/bf406df4-4f2a-426c-a0a5-e4466631deb0" />
 
+## 38. Pushing an image to a private Docker registry
+We are doing Docker image mirroring and publishing to a private registry (sometimes also called **air-gapping** when moving images between offline/online environments on server 10.192.188.222).
 
+```
+docker images
+```
+
+```
+docker pull   registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1
+```
+
+```
+docker images
+```
+
+```
+docker save -o  certgen_141.tar 684c5ea3b61b
+```
+
+```
+scp -rp certgen_141.tar  etrans-infra-mon10@10.192.188.222:/tmp
+```
+
+* Now access the server
+
+```
+ssh etrans-infra-mon10@10.192.188.222
+```
+* Check the docker images
+ ```
+ docker images
+ ```
