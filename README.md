@@ -757,3 +757,30 @@ ssh etrans-infra-mon10@10.192.188.222
  ```
  docker images
  ```
+* Load the image on Private repository
+  ```
+  docker load -i /tmp/certgen_141.tar
+  ```
+  ```
+  docker ps
+  ```
+* Search image
+  ```
+  docker images | grep -i 684
+  ```
+
+* Now tag the image
+  ```
+  docker tag 684c5ea3b61b 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
+  ```
+* Login to the private repository
+  ```
+  sudo docker login 10.192.188.222:5000 -u admin -p nic@123
+  ```
+  ```
+  docker pa -a
+  ```
+* Now push the image from Private repository
+  ```
+  docker push 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
+  ```
