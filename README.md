@@ -733,24 +733,30 @@ docker images
 ```
 ![docker1](https://github.com/user-attachments/assets/c0c96300-58bc-4a1f-92e1-c9487462fb72)
 
+1. Pull the image 
 ```
 docker pull   registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1
 ```
-![docker2](https://github.com/user-attachments/assets/2f5cc021-ef7c-4bfe-903e-111764fe20ba)
-
+* Pulls the kube-webhook-certgen image version v1.4.1 from the Kubernetes official registry.
+2. Check available images
 ```
 docker images
 ```
+![docker2](https://github.com/user-attachments/assets/2f5cc021-ef7c-4bfe-903e-111764fe20ba)
+* You’ll get the IMAGE ID (e.g., 684c5ea3b61b) which you use later for docker save.
+3. Save the image as a tar file
 ```
 docker save -o  certgen_141.tar 684c5ea3b61b
 ```
 ![docker3](https://github.com/user-attachments/assets/1f0a5be0-460e-4b70-bf81-a84d09f0ed27)
+* Exports the image into a portable .tar file.
 
+4. Copy tar to the target server
 ```
 scp -rp certgen_141.tar  etrans-infra-mon10@10.192.188.222:/tmp
 ```
-
-* Now access the server
+* Securely copies the file to /tmp on your target server (10.192.188.222).
+5. Now access the server
 
 ```
 ssh etrans-infra-mon10@10.192.188.222
@@ -761,30 +767,44 @@ ssh etrans-infra-mon10@10.192.188.222
  ```
  docker images
  ```
-* Load the image on Private repository
+6. Load the image on the target server
   ```
   docker load -i /tmp/certgen_141.tar
   ```
   ```
-  docker ps
+  docker images
   ```
+* Loads the image into Docker on the new server.
+* docker images will confirm it’s available.
+  
 * Search image
   ```
   docker images | grep -i 684
   ```
 
-* Now tag the image
+7. Tag the image for the private registry
   ```
   docker tag 684c5ea3b61b 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
   ```
-* Login to the private repository
+* Tags the local image with your private registry’s address (10.192.188.222:5000).
+* This makes Docker know where to push it.
+  
+8. Login to the private repository
   ```
   sudo docker login 10.192.188.222:5000 -u admin -p nic@123
   ```
   ```
-  docker pa -a
+  docker ps -a
   ```
-* Now push the image from Private repository
+* Logs into your private registry with username admin.
+  
+9. Push the image
   ```
   docker push 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
   ```
+* Uploads the tagged image to your private registry.
+* After this, any server can pull it using:
+  ```
+  docker pull 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
+  ```
+* That’s the complete cycle: Pull → Save → Transfer → Load → Tag → Login → Push.
