@@ -35,13 +35,14 @@ Let's documents our learnings on the go..
 29. Apache Kafka
 30. Swap memory (isue resolve)
 31. ELK
-32. K8s Deployment (Pariwanseva)
-33. Daily Running commands K8s
-34. Docker build (Pariwanseva)
-35. Logs check for k8s nodes (paidnr-app)
-36. Container images migration
-37. Message-Report-Service Migration
-38. Pushing an image to a private Docker registry
+32. ElasticSearch
+33. K8s Deployment (Pariwanseva)
+34. Daily Running commands K8s
+35. Docker build (Pariwanseva)
+36. Logs check for k8s nodes (paidnr-app)
+37. Container images migration
+38. Message-Report-Service Migration
+39. Pushing an image to a private Docker registry
 -----------------------------------------------
 
 ### Case Studies
@@ -566,7 +567,12 @@ Why?
 * Logstash is heavy.
 * Fluent Bit is lightweight, designed for K8s, and more resource-efficient.
 
-## 32. K8s Deployment (PariwanSewa)
+## 32. ElasticSearch
+<img width="275" height="183" alt="image" src="https://github.com/user-attachments/assets/d6a5dcf3-89bb-4e72-b131-ba42426c413d" />
+
+Elasticsearch is an open-source, distributed search and analytics engine built on Apache Lucene that stores, retrieves, and analyzes data in real time for use cases like full-text search, log analytics, observability, security, and business intelligence. It handles structured, unstructured, and vector data, offering a RESTful API with JSON documents for interacting with data and often works as part of the Elastic Stack with Kibana for visualization and management.  
+--------------------------------------------------------
+## 33. K8s Deployment (PariwanSewa)
 Here are the steps to deploy files manually on the staging environment on K8s.
 
 ### Steps:
@@ -582,7 +588,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
 4. Create the backup first of all  the file with current date.
 --------------------------------------------------------------------------
 
-33. Daily Running commands K8s
+34. Daily Running commands K8s
     * To see the nodes
       ```
       kubectl get nodes
@@ -609,7 +615,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
       kubectl get svc -n vahan-api
       ```
 -----------------
-## 33. Docker build (Pariwanseva)
+## 35. Docker build (Pariwanseva)
   In this task, we need to create docker build and send it to the K8s server (Parivahanseva)
 
 ### Steps:
@@ -651,7 +657,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
     scp -rp  paidnrsearchservices_v1.tar etrans-infra-mon10@10.192.188.222:/tmp
     ```
     -------------------------------------------------------------------------------
-## 34. Logs check for k8s nodes (paidnr-app)
+## 35. Logs check for k8s nodes (paidnr-app)
    In this task we have to check the daily logs of K8s pod (suggested services/app) and send them to the required Developer.
    ### Steps:
    1. Login to the jump server
@@ -667,7 +673,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
       kubectl logs -f vahan-paidnrgateway-6466b6c984-676zr -n paidnr-app
       ``` 
 
- ## 35. Container images migration 
+ ## 36. Container images migration 
  
     We need to migrate the Podman container from one server to another. Three things need to be consider during this:
     1. Image
@@ -767,6 +773,7 @@ ssh etrans-infra-mon10@10.192.188.222
  ```
  docker images
  ```
+ ![docker5](https://github.com/user-attachments/assets/f91a7a67-1211-43ec-b7fb-7aa1b87a2838)
 
 6. Load the image on the target server
   ```
@@ -775,6 +782,8 @@ ssh etrans-infra-mon10@10.192.188.222
   ```
   docker images
   ```
+  ![docker6](https://github.com/user-attachments/assets/66f66f7d-5ef0-423b-9890-fa5c2b968b81)
+
 * Loads the image into Docker on the new server.
 * docker images will confirm it’s available.
   
@@ -782,11 +791,11 @@ ssh etrans-infra-mon10@10.192.188.222
   ```
   docker images | grep -i 684
   ```
-
 7. Tag the image for the private registry
   ```
   docker tag 684c5ea3b61b 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
   ```
+  
 * Tags the local image with your private registry’s address (10.192.188.222:5000).
 * This makes Docker know where to push it.
   
@@ -797,6 +806,7 @@ ssh etrans-infra-mon10@10.192.188.222
   ```
   docker ps -a
   ```
+
 * Logs into your private registry with username admin.
   
 9. Push the image
