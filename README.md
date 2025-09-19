@@ -731,18 +731,20 @@ We are doing Docker image mirroring and publishing to a private registry (someti
 ```
 docker images
 ```
+![docker1](https://github.com/user-attachments/assets/c0c96300-58bc-4a1f-92e1-c9487462fb72)
 
 ```
 docker pull   registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.4.1
 ```
+![docker2](https://github.com/user-attachments/assets/2f5cc021-ef7c-4bfe-903e-111764fe20ba)
 
 ```
 docker images
 ```
-
 ```
 docker save -o  certgen_141.tar 684c5ea3b61b
 ```
+![docker3](https://github.com/user-attachments/assets/1f0a5be0-460e-4b70-bf81-a84d09f0ed27)
 
 ```
 scp -rp certgen_141.tar  etrans-infra-mon10@10.192.188.222:/tmp
@@ -753,6 +755,8 @@ scp -rp certgen_141.tar  etrans-infra-mon10@10.192.188.222:/tmp
 ```
 ssh etrans-infra-mon10@10.192.188.222
 ```
+![docker4](https://github.com/user-attachments/assets/fdcb27f7-62cd-4f7b-a650-acc01ab64093)
+
 * Check the docker images
  ```
  docker images
