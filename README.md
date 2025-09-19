@@ -767,6 +767,7 @@ ssh etrans-infra-mon10@10.192.188.222
  ```
  docker images
  ```
+
 6. Load the image on the target server
   ```
   docker load -i /tmp/certgen_141.tar
