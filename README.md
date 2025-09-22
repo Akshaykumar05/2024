@@ -36,13 +36,14 @@ Let's documents our learnings on the go..
 30. Swap memory (isue resolve)
 31. ELK
 32. ElasticSearch
-33. K8s Deployment (Pariwanseva)
-34. Daily Running commands K8s
-35. Docker build (Pariwanseva)
-36. Logs check for k8s nodes (paidnr-app)
-37. Container images migration
-38. Message-Report-Service Migration
-39. Pushing an image to a private Docker registry
+33. User Add in ELK stack
+34. K8s Deployment (Pariwanseva)
+35. Daily Running commands K8s
+36. Docker build (Pariwanseva)
+37. Logs check for k8s nodes (paidnr-app)
+38. Container images migration
+39. Message-Report-Service Migration
+40. Pushing an image to a private Docker registry
 -----------------------------------------------
 
 ### Case Studies
@@ -570,9 +571,21 @@ Why?
 ## 32. ElasticSearch
 <img width="275" height="183" alt="image" src="https://github.com/user-attachments/assets/d6a5dcf3-89bb-4e72-b131-ba42426c413d" />
 
-Elasticsearch is an open-source, distributed search and analytics engine built on Apache Lucene that stores, retrieves, and analyzes data in real time for use cases like full-text search, log analytics, observability, security, and business intelligence. It handles structured, unstructured, and vector data, offering a RESTful API with JSON documents for interacting with data and often works as part of the Elastic Stack with Kibana for visualization and management.  
+* Elasticsearch is an open-source, distributed search and analytics engine built on Apache Lucene that stores, retrieves, and analyzes data in real time for use cases like full-text search, log analytics, observability, security, and business intelligence. It handles structured, unstructured, and vector data, offering a RESTful API with JSON documents for interacting with data and often works as part of the Elastic Stack with Kibana for visualization and management.  
 --------------------------------------------------------
-## 33. K8s Deployment (PariwanSewa)
+## 33. User Add in ELK stack
+We need to add an user on all the servers of ELK (10.192.189.43......52)
+```
+useradd -m -d /home/etrans-infra-mon11 -p $(openssl passwd -1 Redhat@123456789) etrans-infra-mon11 --shell /bin/bash && usermod -aG sudo etrans-infra-mon11;echo "etrans-infra-mon11        ALL=(ALL)       ALL" >> /etc/sudoers
+```
+* Check the user:
+  ```
+  id etrans-infra-mon11
+  ```
+  <img width="1320" height="94" alt="image" src="https://github.com/user-attachments/assets/32995bec-5cdc-464f-9fef-2f3097da9ea3" />
+
+-----------------------------------------------
+## 34. K8s Deployment (PariwanSewa)
 Here are the steps to deploy files manually on the staging environment on K8s.
 
 ### Steps:
@@ -588,7 +601,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
 4. Create the backup first of all  the file with current date.
 --------------------------------------------------------------------------
 
-34. Daily Running commands K8s
+35. Daily Running commands K8s
     * To see the nodes
       ```
       kubectl get nodes
@@ -615,7 +628,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
       kubectl get svc -n vahan-api
       ```
 -----------------
-## 35. Docker build (Pariwanseva)
+## 36. Docker build (Pariwanseva)
   In this task, we need to create docker build and send it to the K8s server (Parivahanseva)
 
 ### Steps:
@@ -657,7 +670,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
     scp -rp  paidnrsearchservices_v1.tar etrans-infra-mon10@10.192.188.222:/tmp
     ```
     -------------------------------------------------------------------------------
-## 35. Logs check for k8s nodes (paidnr-app)
+## 37. Logs check for k8s nodes (paidnr-app)
    In this task we have to check the daily logs of K8s pod (suggested services/app) and send them to the required Developer.
    ### Steps:
    1. Login to the jump server
@@ -673,7 +686,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
       kubectl logs -f vahan-paidnrgateway-6466b6c984-676zr -n paidnr-app
       ``` 
 
- ## 36. Container images migration 
+ ## 38. Container images migration 
  
     We need to migrate the Podman container from one server to another. Three things need to be consider during this:
     1. Image
@@ -713,7 +726,7 @@ Here are the steps to deploy files manually on the staging environment on K8s.
     ```
     
 ------------------------------------------
-## 37. Message-Report-Service Migration
+## 39. Message-Report-Service Migration
 1. We need to migrate the **msg-rept-bck** service from a server (10.246.82.142) to another server (10.192.88.195) with all the dependencies.
 Check the Tomcat and Java version, which need to be migrate, and also port Openeings (outbound).
 2. HA Proxy entry
@@ -731,7 +744,7 @@ netstat -tulnp | grep 2853235
 ```
 <img width="843" height="62" alt="image" src="https://github.com/user-attachments/assets/bf406df4-4f2a-426c-a0a5-e4466631deb0" />
 
-## 38. Pushing an image to a private Docker registry
+## 40. Pushing an image to a private Docker registry
 We are doing Docker image mirroring and publishing to a private registry (sometimes also called **air-gapping** when moving images between offline/online environments on server 10.192.188.222).
 
 ```
