@@ -25,7 +25,7 @@ Let's documents our learnings on the go..
 19. Nexus repo creation
 20. Manual Deployment : eDetection (10.142.36.130)
 21. Graylog Configuration
-22. CICD Pipeline Creation (eDetection Server 10.142.36.130)
+22. CICD Pipeline Creation
 23. Port issue (Port down on any Server)
 24. Space utilization issue (Disk space low < 85 %)
 25. Load issue on a Server (Load average high)
@@ -480,6 +480,75 @@ In essence, a Docker private registry gives you full control over how Docker ima
 1. Nexus
 2. Ansible
 3. Jenkins
+
+### CICP Pipeline for PBCmdashboard and cmdashboard (10.192.88.200)
+* We are setting up a new application deployment (PBCmdashboard) using Ansible roles and playbooks managed from the Jenkins backend server (10.192.88.244).
+The artifacts (WAR files) are stored in Nexus (10.192.88.155).
+
+#### Steps:
+1. Create Playbook
+* Navigate to the Ansible working directory and copy an existing playbook as a template:
+  ```
+  cd /u01/jenkins_data/ansible
+  ```
+  ```
+  cp -rp pbsmartcard.yml PBCmdashboard.yml
+  ```
+* Update the playbook:
+  ```
+  - name: role
+    hosts: msg-report-service
+    roles:
+       - msg-report-service
+  ```
+* This defines which host group the role will run against and which role will be applied.
+
+2. Update Inventory
+* Add the new server (10.192.88.200) into the inventory file:
+  ```
+  vim inventory
+  ```
+  ```
+  [PBCDashboard]
+  10.192.88.200
+
+  [cmdashboard]
+  10.192.88.200
+  ```
+* This ensures Ansible knows which servers belong to the PBCDashboard and cmdashboard groups.
+
+3. Create Role
+* Create a new role directory for pbcdashboard:
+  ```
+  cd /u01/jenkins_data/ansible/roles
+  ```
+  ```
+  mkdir -p pbcdashboard/{tasks,handlers,templates,files,vars,defaults,meta}
+  ```
+ * Move into the defaults directory and create the role variable file:
+ ```
+ cd pbcdashboard/defaults
+```
+4. Define Application Configuration
+* Inside roles/pbcdashboard/defaults/main.yml, add the Tomcat application details:
+  ```
+  vim main.yml
+  ```
+  ```
+  tomcats:
+  - name: 'PBCmdashboard'
+    tomcat_path: '/u01/Deployment/tcat_PBCmdashboard_itms_8081'
+    tomcat_name: 'tomcat@tcat_PBCmdashboard_itms_8081'
+    war_name: 'PBCmdashboard'
+    server_name: 'tcat_PBCmdashboard_itms_8081'
+    backend_name: 'PBCmdashboard'
+    tomcat_port: '8081'
+    url_name: '/PBCmdashboard/'
+    repository_url: 'http://10.192.88.190/nexus/repository/PBCmdashboard/'
+    repository_username: 'PBCmdashboard'
+    repository_password: 'PBCmdashboard'
+   ```
+ * These variables define how Ansible will deploy the WAR file from Nexus to the Tomcat instance on the target server.
 
 -------------------------------------------------------------------------------
 ## 26. Tomcat installation and Configuration
