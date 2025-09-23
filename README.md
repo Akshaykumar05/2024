@@ -44,6 +44,7 @@ Let's documents our learnings on the go..
 38. Container images migration
 39. Message-Report-Service Migration
 40. Pushing an image to a private Docker registry
+41. Find Tomcat Configuration (SLDMakerWS-Migration on K8s)
 -----------------------------------------------
 
 ### Case Studies
@@ -549,7 +550,10 @@ The artifacts (WAR files) are stored in Nexus (10.192.88.155).
     repository_password: 'PBCmdashboard'
    ```
  * These variables define how Ansible will deploy the WAR file from Nexus to the Tomcat instance on the target server.
-
+* Next step would be to create Repository on Nexus (10.192.88.155) server, 3 steps are:
+  1. Create Repositoryand
+  2. Create role
+  3. Create local user
 -------------------------------------------------------------------------------
 ## 26. Tomcat installation and Configuration
 Documentation file of this task has been saved to the NIC folder.
@@ -901,3 +905,37 @@ ssh etrans-infra-mon10@10.192.188.222
   docker pull 10.192.188.222:5000/ingress-nginx/kube-webhook-certgen:v1.4.1
   ```
 * That’s the complete cycle: Pull → Save → Transfer → Load → Tag → Login → Push.
+
+--------------------------------
+## 41. Tomcat Configuration
+* **Use Case**: We need to migrate SLDMakersWS application on K8s environment (currently it si on staging with server IP:10.192.88.226). So here first we need Tomcat configuration
+  1. Java/Tomcat version
+  2. DB IP
+  3. Connector/shutdown port
+
+### Steps:
+1. Login the server via jump server
+   ```
+   ssh -A -J etrans-infra-mon10@10.192.88.232 etrans-infra-mon10@10.192.88.226
+   ```
+2. Go to the required path
+   ```
+   /u01/Deployment_Vahan/Tomcat_Instance/tcat_vahan_8081/conf
+   ```
+   ```
+   cat context.xml
+   ```
+   * Here we can get the DB IP
+   ```
+   cat server.xml
+   ```
+   * Here we can get the Connector port (8083) and Shutdown port (9083)
+
+3. Now we will check Java/Tomcat version
+   ```
+   /u01/Deployment_Vahan/Tomcat_Instance/tcat_vahan_8083/bin
+   ```
+   ```
+   sh version.sh
+   ```
+   
